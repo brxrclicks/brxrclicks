@@ -1659,7 +1659,13 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
-/* Work gallery grid */
+/* Scroll inside Work panel */
+#work {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Gallery grid */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1667,28 +1673,16 @@ input, select, textarea {
   margin-top: 1.5rem;
 }
 
-@media screen and (min-width: 736px) {
+@media (min-width: 736px) {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.gallery a {
-  border-bottom: 0;
-}
-
 .gallery img {
   width: 100%;
+  border-radius: 10px;
   display: block;
-  border-radius: 6px;
 }
 
-/* Slide-up animation when Work opens */
-#work.active .gallery {
-  animation: workSlideUp 0.6s ease both;
-}
 
-@keyframes workSlideUp {
-  from { transform: translateY(24px); opacity: 0; }
-  to   { transform: translateY(0);  opacity: 1; }
-}

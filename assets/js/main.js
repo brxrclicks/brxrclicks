@@ -398,4 +398,72 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+
 })(jQuery);
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
+  var lb = document.getElementById('lightbox');
+  if (!lb || items.length === 0) return;
+
+  var img = lb.querySelector('.lb-img');
+  var btnClose = lb.querySelector('.lb-close');
+  var btnPrev = lb.querySelector('.lb-prev');
+  var btnNext = lb.querySelector('.lb-next');
+
+  var index = 0;
+  var touchStartX = 0;
+
+  function openAt(i) {
+    index = (i + items.length) % items.length;
+    img.src = items[index].getAttribute('href');
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+
+  function prev() { openAt(index - 1); }
+  function next() { openAt(index + 1); }
+
+  items.forEach(function (a, i) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();      // stops new tab
+      openAt(i);
+    });
+  });
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+
+  // Click outside image closes
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb) close();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // Swipe (mobile)
+  lb.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  lb.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) < 50) return;
+    if (dx > 0) prev();
+    else next();
+  });
+})();

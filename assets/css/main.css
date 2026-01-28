@@ -1728,3 +1728,18 @@ Add this to **assets/css/main.css** (near the bottom):
   display: inline-block;
   float: none;
 }
+
+/* Center Contact icons */
+#contact .icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Make icons slightly bigger */
+#contact .icons a {
+  width: 3.2rem;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  font-size: 1.2rem;
+}

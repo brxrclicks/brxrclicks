@@ -1767,12 +1767,9 @@ input, select, textarea {
   text-transform: lowercase;
   opacity: 0.7;
   margin-left: 0.75rem;
-}
-.gallery-note {
   white-space: nowrap;
-}
-.gallery-note {
   position: relative;
   top: -0.15rem;
 }
+
 

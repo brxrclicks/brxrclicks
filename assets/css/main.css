@@ -1676,3 +1676,9 @@ input, select, textarea {
   max-height: 80vh;
   overflow-y: auto;
 }
+
+/* Desktop: allow scrolling inside the modal/article */
+#main article {
+  max-height: 80vh;
+  overflow-y: auto;
+}

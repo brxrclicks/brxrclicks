@@ -1771,5 +1771,19 @@ input, select, textarea {
   position: relative;
   top: -0.15rem;
 }
+/* Intro location note */
+#intro {
+  position: relative;
+}
 
+.intro-location {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
 

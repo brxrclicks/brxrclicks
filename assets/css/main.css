@@ -1713,8 +1713,23 @@ input, select, textarea {
 
 /* Prevent underline/border from theme on gallery links */
 .gallery a { border-bottom: 0; }
+Your “View Gallery” button is **not centered** because `.actions` in this template isn’t a flex container in that context.
 
-/* Center Gallery button */
+Add this to **assets/css/main.css** (near the bottom):
+
+```css
+/* Center View Gallery button */
 #work .actions {
-  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
+
+#work .actions li {
+  display: inline-block;
+  float: none;
+}
+```
+
+That will put the button in the middle.
+
+

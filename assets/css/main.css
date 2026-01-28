@@ -1771,19 +1771,21 @@ input, select, textarea {
   position: relative;
   top: -0.15rem;
 }
-/* Intro location note */
-#intro {
-  position: relative;
+/* Intro footer note (no overlap) */
+#intro .intro-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
 }
 
-.intro-location {
-  position: absolute;
-  bottom: 1.25rem;
-  right: 1.5rem;
+#intro .intro-location {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   opacity: 0.85;
+}
+@media screen and (max-width: 736px) {
+  #intro .intro-location { font-size: 0.65rem; }
 }
 

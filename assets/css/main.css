@@ -1660,6 +1660,7 @@ input, select, textarea {
 			opacity: 0;
 		}
 
+/* ===== Gallery grid ===== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1671,12 +1672,17 @@ input, select, textarea {
   height: auto;
   border-radius: 4px;
 }
-/* Allow scrolling inside Gallery */
-#gallery {
+
+/* Scroll inside the Gallery article (the modal) */
+#main article#gallery {
   max-height: 80vh;
   overflow-y: auto;
 }
-/* Lightbox overlay */
+
+/* Prevent underline/border from theme on gallery links */
+.gallery a { border-bottom: 0; }
+
+/* ===== Lightbox overlay ===== */
 #lightbox {
   display: none;
   position: fixed;
@@ -1711,35 +1717,33 @@ input, select, textarea {
 #lightbox .lb-prev  { left: 1rem; }
 #lightbox .lb-next  { right: 1rem; }
 
-/* Prevent underline/border from theme on gallery links */
-.gallery a { border-bottom: 0; }
-Your “View Gallery” button is **not centered** because `.actions` in this template isn’t a flex container in that context.
-
-Add this to **assets/css/main.css** (near the bottom):
-
-```css
-/* Center View Gallery button */
+/* ===== Center View Gallery button ===== */
 #work .actions {
   width: 100%;
-  text-align: center;
+  justify-content: center;
 }
 
 #work .actions li {
-  display: inline-block;
-  float: none;
+  padding-left: 0;
 }
 
-/* Center Contact icons */
+/* ===== Center + enlarge Contact icons ===== */
 #contact .icons {
+  width: 100%;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  padding-left: 0;
 }
 
-/* Make icons slightly bigger */
-#contact .icons a {
+#contact .icons li {
+  padding: 0;
+}
+
+#contact .icons li a {
   width: 3.2rem;
   height: 3.2rem;
   line-height: 3.2rem;
   font-size: 1.2rem;
 }
+

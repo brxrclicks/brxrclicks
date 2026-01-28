@@ -1671,3 +1671,8 @@ input, select, textarea {
   height: auto;
   border-radius: 4px;
 }
+/* Allow scrolling inside Gallery */
+#gallery {
+  max-height: 80vh;
+  overflow-y: auto;
+}

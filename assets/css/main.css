@@ -1713,3 +1713,8 @@ input, select, textarea {
 
 /* Prevent underline/border from theme on gallery links */
 .gallery a { border-bottom: 0; }
+
+/* Center Gallery button */
+#work .actions {
+  justify-content: center;
+}
